@@ -83,7 +83,7 @@ class Logo extends Component {
             source={require('./images/icon128.png')}
           />
         </Animated.View>
-        <Text style={styles.text}>PreSearch</Text>
+        <Text style={styles.text}>Presearch</Text>
       </View>
     );
   }
