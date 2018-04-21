@@ -12,7 +12,7 @@ class Browse extends Component {
   constructor(props) {
     super(props);
     const { query, engine } = this.props.navigation.state.params;
-    this.state = { textInput: query, query: engine };
+    this.state = { textInput: query, query, engine };
   }
 
   handleChangeText = (text) => {
