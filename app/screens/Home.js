@@ -5,7 +5,7 @@ import { StatusBar, KeyboardAvoidingView, Keyboard } from 'react-native';
 import { Container } from '../components/Container';
 import { Logo } from '../components/Logo';
 import { InputWithButton } from '../components/TextInput';
-import { Header } from '../components/Header';
+import { Engines } from '../components/Engines';
 
 
 class Home extends Component {
@@ -14,31 +14,38 @@ class Home extends Component {
   };
   constructor(props) {
     super(props);
-    this.state = { query: '' };
+    this.state = { query: '', engine: 'https://www.google.com/search?q=' };
   }
 
   handleChangeText = (text) => {
     this.setState({ query: text });
   };
 
-  handleSearch = () => {
-    this.props.navigation.navigate('Browse', { query: this.state.query });
+  handleSearch = (engine) => {
+    this.props.navigation.navigate('Browse', { query: this.state.query, engine });
     Keyboard.dismiss();
   };
+
+  handleIcon = () => {
+    this.props.navigation.navigate('Browse', { query: this.state.query, engine: this.state.engine });
+    Keyboard.dismiss();
+  }
 
   render() {
     return (
       <Container>
         <StatusBar backgroundColor="blue" barStyle="light-content" />
-        <Header onPress={this.handleOptionsPress} />
         <KeyboardAvoidingView behavior="padding">
           <Logo />
           <InputWithButton
-            onPress={this.handleSearch}
-            onSubmitEditing={this.handleSearch}
+            onPress={this.handleIcon}
+            onSubmitEditing={this.handleIcon}
             onChangeText={this.handleChangeText}
           />
         </KeyboardAvoidingView>
+        <Engines
+          onPress={this.handleSearch}
+        />
       </Container>
     );
   }

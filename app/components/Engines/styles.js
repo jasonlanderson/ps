@@ -4,19 +4,12 @@ export default EStyleSheet.create({
   container: {
     flexDirection: 'row',
     justifyContent: 'center',
-    alignSelf: 'center',
-
   },
-  logo: {
+  amazon: {
     marginTop: 10,
-
+    marginLeft: 10,
   },
-  button: {
-    alignSelf: 'flex-end',
-    paddingVertical: 5,
-    paddingHorizontal: 20,
-  },
-  icon: {
-    width: 18,
+  google: {
+    marginTop: 8,
   },
 });

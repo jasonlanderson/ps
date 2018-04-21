@@ -9,10 +9,11 @@ export default EStyleSheet.create({
   $buttonBackgroundColorModifier: 0.1,
   container: {
     backgroundColor: '$white',
-    width: '90%',
+    width: '70%',
     height: INPUT_HEIGHT,
     flexDirection: 'row',
-    alignItems: 'center',
+    alignSelf: 'center',
+
     borderRadius: BORDER_RADIUS,
     marginVertical: 11,
   },
@@ -46,5 +47,6 @@ export default EStyleSheet.create({
     paddingHorizontal: 8,
     color: '$inputText',
     fontSize: 18,
+
   },
 });

@@ -18,6 +18,7 @@ const HomeStack = StackNavigator(
       screen: Browse,
       navigationOptions: {
         headerTitle: 'Browser',
+        header: null,
       },
     },
   },
