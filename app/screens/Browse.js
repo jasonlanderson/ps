@@ -11,17 +11,18 @@ class Browse extends Component {
   };
   constructor(props) {
     super(props);
-    const { query, engine } = this.props.navigation.state.params;
-    this.state = { textInput: query, query, engine };
+    const { query } = this.props.navigation.state.params;
+    this.state = { textInput: query, query };
   }
-
-  handleChangeText = (text) => {
-    this.setState({ textInput: text });
-  };
 
   handleSearch = () => {
     this.setState({ query: this.state.textInput });
+
     Keyboard.dismiss();
+  };
+
+  handleChangeText = (text) => {
+    this.setState({ textInput: text });
   };
 
   displayWeb() {
@@ -48,6 +49,7 @@ class Browse extends Component {
           onSubmitEditing={this.handleSearch}
           onChangeText={this.handleChangeText}
           goBack={this.props.navigation.goBack}
+          value={this.state.textInput}
         />
         {this.displayWeb()}
       </View>

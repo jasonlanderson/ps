@@ -6,6 +6,7 @@ import { Container } from '../components/Container';
 import { Logo } from '../components/Logo';
 import { InputWithButton } from '../components/TextInput';
 import { Engines } from '../components/Engines';
+import resources from '../config/resources';
 
 
 class Home extends Component {
@@ -14,21 +15,25 @@ class Home extends Component {
   };
   constructor(props) {
     super(props);
-    this.state = { query: '', engine: 'https://www.google.com/search?q=' };
+    this.state = { query: '', engineSelected: 0 };
   }
 
   handleChangeText = (text) => {
     this.setState({ query: text });
   };
 
-  handleSearch = (engine) => {
-    this.props.navigation.navigate('Browse', { query: this.state.query, engine });
-    Keyboard.dismiss();
-  };
-
   handleIcon = () => {
-    this.props.navigation.navigate('Browse', { query: this.state.query, engine: this.state.engine });
+    const engineLink = resources[this.state.engineSelected].link;
+    this.props.navigation.navigate('Browse', {
+      query: this.state.query,
+      engine: engineLink,
+      handleChangeText: this.handleChangeText,
+    });
     Keyboard.dismiss();
+  }
+
+  changeEngine = (number) => {
+    this.setState({ engineSelected: number });
   }
 
   render() {
@@ -41,10 +46,13 @@ class Home extends Component {
             onPress={this.handleIcon}
             onSubmitEditing={this.handleIcon}
             onChangeText={this.handleChangeText}
+            value={this.state.query}
+            placeholder=""
           />
         </KeyboardAvoidingView>
         <Engines
-          onPress={this.handleSearch}
+          changeEngine={this.changeEngine}
+          engineSelected={this.state.engineSelected}
         />
       </Container>
     );

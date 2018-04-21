@@ -1,43 +1,36 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { View, TouchableHighlight } from 'react-native';
-import { FontAwesome } from '@expo/vector-icons';
+import { View } from 'react-native';
+import resources from '../../config/resources';
+import Engine from './Engine';
 
 
 import styles from './styles';
 
-const Engines = (props) => {
-// Todo: single function to handle this with an engine constants file so we can add new things easier
 
-  googlePress = () => {
-    props.onPress('https://www.google.com/search?q=');
-  };
+export default class Engines extends Component {
+  renderEngines = () => resources.map((engine, i) => (
+    <Engine
+      engine={engine}
+      engineSelected={this.props.engineSelected}
+      handlePress={this.handlePress}
+      changeEngine={this.props.changeEngine}
+      key={engine.link}
+      position={i}
+    />
+  ));
 
-  amazonPress = () => {
-    props.onPress('https://www.amazon.com/s/?field-keywords=');
-  };
-
-
-  return (
-    <View style={styles.container}>
-      <TouchableHighlight
-        onPress={this.googlePress}
-        underlayColor="transparent"
-      >
-        <FontAwesome name="google" style={styles.google} color="white" size={32} />
-      </TouchableHighlight>
-      <TouchableHighlight
-        onPress={this.amazonPress}
-        underlayColor="transparent"
-      >
-        <FontAwesome name="amazon" style={styles.amazon} color="white" size={32} />
-      </TouchableHighlight>
-    </View>
-  );
-};
+  render() {
+    return (
+      <View style={styles.container}>
+        {this.renderEngines()}
+      </View>
+    );
+  }
+}
 
 Engines.propTypes = {
-  onPress: PropTypes.func,
+  engineSelected: PropTypes.number,
+  changeEngine: PropTypes.func,
 };
 
-export default Engines;
