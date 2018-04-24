@@ -4,16 +4,26 @@ import { StatusBar, WebView, View, Keyboard } from 'react-native';
 import { connectAlert } from '../components/Alert';
 import { Header } from '../components/Header';
 
+const WEBVIEW_REF = 'WEBVIEW_REF';
 
 class Browse extends Component {
   static propTypes = {
     navigation: PropTypes.object,
   };
+
   constructor(props) {
     super(props);
+
+    this.onBrowserNavigationStateChange = this.onBrowserNavigationStateChange.bind(this);
+    this.browserBack = this.browserBack.bind(this);
+
     const { query } = this.props.navigation.state.params;
-    this.state = { textInput: query, query };
-  }
+    this.state = {
+      textInput: query,
+      query,
+      browserCanGoBack: false
+    };
+  }s
 
   handleSearch = () => {
     this.setState({ query: this.state.textInput });
@@ -25,6 +35,14 @@ class Browse extends Component {
     this.setState({ textInput: text });
   };
 
+  // Function which is called when the browser component changes state
+  // Tells when the back button should be enabled
+  onBrowserNavigationStateChange(navState) {
+    this.setState({
+      browserCanGoBack: navState.canGoBack
+    });
+  }
+
   displayWeb() {
     const { engine } = this.props.navigation.state.params;
 
@@ -34,10 +52,16 @@ class Browse extends Component {
       <WebView
         source={{ uri: destination }}
         style={{ }}
+        ref={WEBVIEW_REF}
+        onNavigationStateChange={this.onBrowserNavigationStateChange}
         javaScriptEnabled
         domStorageEnabled
       />
     );
+  }
+
+  browserBack() {
+    this.refs[WEBVIEW_REF].goBack();
   }
 
   render() {
@@ -48,7 +72,9 @@ class Browse extends Component {
           onPress={this.handleSearch}
           onSubmitEditing={this.handleSearch}
           onChangeText={this.handleChangeText}
-          goBack={this.props.navigation.goBack}
+          navBack={this.props.navigation.goBack}
+          browserBack={this.browserBack}
+          browserCanGoBack={this.state.browserCanGoBack}
           value={this.state.textInput}
         />
         {this.displayWeb()}

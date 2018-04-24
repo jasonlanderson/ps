@@ -4,15 +4,24 @@ import PropTypes from 'prop-types';
 import { View, Image, TouchableHighlight } from 'react-native';
 import { InputWithButton } from '../TextInput';
 
-
 import styles from './styles';
+import { FontAwesome } from '@expo/vector-icons';
 
 export default class Header extends Component {
   handleBack = () => {
-    this.props.goBack();
+    this.props.navBack();
   };
 
+  handleBrowserBack = () => {
+    this.props.browserBack();
+  }
+
   render() {
+    let backButtonColor = 'lightgray';
+    if (this.props.browserCanGoBack) {
+      backButtonColor = 'gray';
+    }
+
     return (
       <View style={styles.container}>
         <TouchableHighlight
@@ -23,6 +32,18 @@ export default class Header extends Component {
             resizeMode="contain"
             style={styles.logo}
             source={require('./images/icon48.png')}
+          />
+        </TouchableHighlight>
+        <TouchableHighlight
+          onPress={this.handleBrowserBack}
+          disabled={!this.props.browserCanGoBack}
+          underlayColor="transparent"
+        >
+          <FontAwesome
+            name="arrow-left"
+            style={styles.backButtonIcon}
+            color={backButtonColor}
+            size={32}
           />
         </TouchableHighlight>
         <InputWithButton

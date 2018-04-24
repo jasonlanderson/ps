@@ -9,7 +9,11 @@ export default EStyleSheet.create({
   },
   logo: {
     marginTop: 10,
-
+  },
+  backButtonIcon: {
+    marginTop: 15,
+    marginLeft: 5,
+    marginRight: 5,
   },
   button: {
     alignSelf: 'flex-end',
