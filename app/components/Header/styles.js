@@ -5,6 +5,7 @@ export default EStyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignSelf: 'center',
+    marginTop: 22,
 
   },
   logo: {

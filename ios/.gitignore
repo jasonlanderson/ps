@@ -1,0 +1,12 @@
+# Skip bundle files
+main.jsbundle
+main.jsbundle.meta
+
+# Skip XCode config
+acttodaymobile.xcodeproj/project.xcworkspace/xcuserdata/jasonanderson.xcuserdatad
+
+# Package Managers
+Cartfile.resolved
+Carthage
+
+
