@@ -1,8 +1,9 @@
-
 {
   "expo": {
     "sdkVersion": "26.0.0",
     "orientation": "portrait",
     "privacy": "public"
-  }
+  },
+  "name": "Presearch",
+  "displayName": "Presearch"
 }

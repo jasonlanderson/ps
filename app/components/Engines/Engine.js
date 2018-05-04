@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { TouchableHighlight } from 'react-native';
-import { FontAwesome } from '@expo/vector-icons';
+
+//import { FontAwesome } from 'react-native-vector-icons';
+import Icon from 'react-native-vector-icons/FontAwesome'
 
 import styles from './styles';
 
@@ -22,7 +24,7 @@ export default class Engine extends Component {
         onPress={this.handleClick}
         underlayColor="transparent"
       >
-        <FontAwesome
+        <Icon
           name={this.props.engine.icon}
           style={iconStyle}
           color="white"

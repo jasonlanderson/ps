@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import { View, Image, TouchableHighlight } from 'react-native';
+import { View, Image, TouchableHighlight, Platform } from 'react-native';
 import { InputWithButton } from '../TextInput';
 
 import styles from './styles';
-import { FontAwesome } from '@expo/vector-icons';
+//import { FontAwesome } from 'react-native-vector-icons';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 export default class Header extends Component {
   handleBack = () => {
@@ -23,7 +24,7 @@ export default class Header extends Component {
     }
 
     return (
-      <View style={styles.container}>
+      <View style={styles.container} >
         <TouchableHighlight
           onPress={this.handleBack}
           underlayColor="transparent"
@@ -39,7 +40,7 @@ export default class Header extends Component {
           disabled={!this.props.browserCanGoBack}
           underlayColor="transparent"
         >
-          <FontAwesome
+          <Icon
             name="arrow-left"
             style={styles.backButtonIcon}
             color={backButtonColor}
