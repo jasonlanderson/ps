@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="logo" data-name="Layer 1" viewBox="0 0 83.16 83.16">
+<defs>
+    <style>.cls-1{fill:url(#linear-gradient);}.cls-2{fill:url(#linear-gradient-2);}.cls-3{fill:#f37021;}.cls-4{fill:#26445f;}</style>
+    <linearGradient id="linear-gradient" x1="226.43" y1="280.08" x2="226.43" y2="331.79" gradientTransform="matrix(1, 0, 0, -1, 0, 612)" gradientUnits="userSpaceOnUse">
+        <stop offset="0" stop-color="#26445f"></stop>
+        <stop offset="1" stop-color="#1090c1"></stop>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" x1="233.21" y1="264.42" x2="233.21" y2="347.58" xlink:href="#linear-gradient"></linearGradient>
+</defs>
+<title>presearch_logo</title>
+<path class="cls-1" d="M240.75,285.86a17.53,17.53,0,0,0-5.27-4.08,14.55,14.55,0,0,0-6.7-1.57H207.4v51.71H221V316h8.1a14.93,14.93,0,0,0,6.67-1.49,15.87,15.87,0,0,0,5.17-4,18.79,18.79,0,0,0,3.32-5.75,19.26,19.26,0,0,0,1.19-6.66,17.9,17.9,0,0,0-1.26-6.52A19.2,19.2,0,0,0,240.75,285.86Zm-10.2,16.6a3.14,3.14,0,0,1-2.34,1.2H221V292.59h6.85a3.74,3.74,0,0,1,2.51,1.17q1.26,1.17,1.26,4.37T230.55,302.46Z" transform="translate(-191.63 -264.42)"></path>
+<path class="cls-2" d="M191.63,347.58h83.16V264.42H191.63v83.16Zm9.72-73.44h63.72v63.72H201.35Z" transform="translate(-191.63 -264.42)"></path>
+<rect class="cls-3" x="35.46" y="57.67" width="31.93" height="9.83"></rect>
+
+</svg>
